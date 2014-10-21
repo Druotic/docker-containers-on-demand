@@ -1,0 +1,17 @@
+== Welcome to StudyPal
+
+StudyPal is a web application that allows students to find other study
+partners.  StudyPal matches individuals based on qualifications and 
+preferences.  Once a group is formed, additional communication and coordination
+may also take place.
+
+== Getting Started
+
+1) Install
+  bundle install
+
+2) Run the server
+  rails server
+
+3) Using a browser, start using the application at
+  http://localhost:3000
