@@ -3,6 +3,13 @@ class GroupsController < ApplicationController
   end
 
   def create
-    render plain: params[:group].inspect
+    @group = Group.new(params[:group])
+
+    @group.save
+    redirect_to @group
+  end
+
+  def show
+    @group = Group.find(params[:id])
   end
 end
