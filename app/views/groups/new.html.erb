@@ -1,0 +1,17 @@
+<h1>New Group</h1>
+
+<%= form_for :group, url:groups_path do |g| %>
+  <p>
+    <%= g.label :title %><br>
+    <%= g.text_field :title %>
+  </p>
+ 
+  <p>
+    <%= g.label :text %><br>
+    <%= g.text_area :text %>
+  </p>
+ 
+  <p>
+    <%= g.submit %>
+  </p>
+<% end %>
