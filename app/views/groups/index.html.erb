@@ -1,0 +1,15 @@
+<h1>Listing groups</h1>
+ 
+<table>
+  <tr>
+    <th>Leader</th>
+    <th>Course</th>
+  </tr>
+ 
+  <% @groups.each do |group| %>
+    <tr>
+      <td><%= group.leader %></td>
+      <td><%= group.course %></td>
+    </tr>
+  <% end %>
+</table>
