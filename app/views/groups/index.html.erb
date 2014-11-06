@@ -4,12 +4,24 @@
   <tr>
     <th>Leader</th>
     <th>Course</th>
+    <th>No. participants</th>
+    <th>Frequency></th>
+    <th>Place</th>
+    <th>Time</th>
+    <th>Day</th>
+    <th>Date</th>
   </tr>
  
   <% @groups.each do |group| %>
     <tr>
       <td><%= group.leader %></td>
       <td><%= group.course %></td>
+      <td><%= group.participantNumber %></td>
+      <td><%= group.frequency %></td>
+      <td><%= group.place %></td>
+      <td><%= group.time %></td>
+      <td><%= group.dayOfWeek %></td>
+      <td><%= group.date %></td>
     </tr>
   <% end %>
 </table>
