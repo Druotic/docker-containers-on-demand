@@ -1,27 +1,37 @@
-<h1>Listing groups</h1>
- 
-<table>
-  <tr>
-    <th>Leader</th>
-    <th>Course</th>
-    <th>No. participants</th>
-    <th>Frequency></th>
-    <th>Place</th>
-    <th>Time</th>
-    <th>Day</th>
-    <th>Date</th>
-  </tr>
- 
-  <% @groups.each do |group| %>
-    <tr>
-      <td><%= group.leader %></td>
-      <td><%= group.course %></td>
-      <td><%= group.participantNumber %></td>
-      <td><%= group.frequency %></td>
-      <td><%= group.place %></td>
-      <td><%= group.time %></td>
-      <td><%= group.dayOfWeek %></td>
-      <td><%= group.date %></td>
-    </tr>
-  <% end %>
-</table>
+<h1>Study Groups for CSC 554</h1>
+
+<button>Create new group</button>
+
+<% @groups.each do |group| %>
+  <div>
+    <h3><%= group.leader %></h3>
+
+    <% if group.participantNumber == 1 %>
+      <p><%= group.participantNumber %> person</p>
+    <% else %>
+      <p><%= group.participantNumber %> people</p>
+    <% end %>
+
+    <% if !group.frequency.blank? %>
+      <p>Meets <%= group.frequency.downcase %></p>
+    <% end %>
+
+
+    <% if !group.place.blank? %>
+      <p><%= group.place %></p>
+    <% end %>
+
+    <% if !group.time.blank? %>
+      <p><%= group.time %></p>
+    <% end %>
+
+    <% if !group.dayOfWeek.blank? %>
+      <p><%= group.dayOfWeek %></p>
+    <% end %>
+
+    <% if !group.date.blank? %>
+      <p><%= group.date %></p>
+    <% end %>
+
+  </div>
+<% end %>
