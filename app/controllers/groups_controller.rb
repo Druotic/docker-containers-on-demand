@@ -23,6 +23,7 @@ class GroupsController < ApplicationController
   # give an error in the previous implementation (using mongo mapper)
   # ref - http://edgeapi.rubyonrails.org/classes/ActionController/StrongParameters.html
   def group_params
-    params.require(:group).permit(:leader, :course)
+    params.require(:group).permit(:leader, :course, :participantNumber, :frequency, :place,
+                                  :time, :dayOfWeek, :date)
   end
 end
