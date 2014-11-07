@@ -19,8 +19,9 @@ class GroupsController < ApplicationController
 
   private
 
-  # This is used for Ruby 4.0's strong parameter enforcement - I'm surprised it didn't
-  # give an error in the previous implementation (using mongo mapper)
+  # This is used for ActiveModel 4.0's strong parameter enforcement - it didn't
+  # give any errors previously because MongoMapper was using an older version of
+  # ActiveModel
   # ref - http://edgeapi.rubyonrails.org/classes/ActionController/StrongParameters.html
   def group_params
     params.require(:group).permit(:leader, :course, :participantNumber, :frequency, :place,
