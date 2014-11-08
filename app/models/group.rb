@@ -1,13 +1,13 @@
 class Group
-  include MongoMapper::Document
+  include Mongoid::Document
 
-  key :leader, String
-  key :course, String
-  key :participantNumber, Integer, :default => 1
-  key :frequency, String
-  key :place, String
-  key :time, Time
-  key :dayOfWeek, String
-  key :date, Date
+  field :leader, type: String
+  field :course, type: String
+  field :participantNumber, type: Integer, default: 1
+  field :frequency, type: String
+  field :place, type: String
+  field :time, type: Time
+  field :dayOfWeek, type: String
+  field :date, type: Date
 
 end
