@@ -1,0 +1,11 @@
+<header>
+  <%= link_to image_tag("studyPal_logo_reduced.jpg"), root_path %>
+  <%= link_to "Home", welcome_index_path %>
+<% if signed_in? %>
+  <%= link_to "Profile", "#" %>
+  <%= link_to "Settings", "#" %>
+  <%= link_to "sign out", destroy_user_session_path, :method => :delete %>
+<% else %>
+  <%= link_to "Sign in", new_user_session_path %>
+<% end %>
+</header>
