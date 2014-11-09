@@ -2,7 +2,7 @@
   <%= link_to image_tag("studyPal_logo_reduced.jpg"), root_path %>
   <%= link_to "Home", welcome_index_path %>
 <% if signed_in? %>
-  <%= link_to "Profile", "#" %>
+  <%= link_to "Profile", edit_user_registration_path %>
   <%= link_to "Settings", "#" %>
   <%= link_to "sign out", destroy_user_session_path, :method => :delete %>
 <% else %>
