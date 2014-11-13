@@ -47,3 +47,8 @@ gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'omniauth-google'
 gem 'omniauth-github'
+
+# Use Bootstrap
+gem "therubyracer"
+gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+gem "twitter-bootstrap-rails"

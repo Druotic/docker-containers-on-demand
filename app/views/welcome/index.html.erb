@@ -1,4 +1,6 @@
-<h1>Welcome, <%= current_user.name %>!</h1>
+<div class="container">
+	<h1>Welcome, <%= current_user.name %>!</h1>
 
-<a href="/groups">List all groups</a><br>
-<a href="/groups/new">Create group</a>
+	<a class="btn btn-primary" href="/groups">List all groups</a>
+	<a class="btn btn-default" href="/groups/new">Create group</a><br>
+</div>
