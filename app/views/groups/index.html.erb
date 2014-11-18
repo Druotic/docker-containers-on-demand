@@ -2,38 +2,40 @@
 
 <button><a href="/groups/new">Create new group</a></button>
 
-<% @groups.each do |group| %>
-  <%= link_to group do %>
-    <div class="groupOverview">
-      <h3><%= group.leader %></h3>
+<div id="groupList">
+  <% @groups.each do |group| %>
+    <%= link_to group do %>
+      <div class="groupOverview">
+        <h3><%= group.leader %></h3>
 
-      <% if group.participantNumber == 1 %>
-        <p><%= group.participantNumber %> person</p>
-      <% else %>
-        <p><%= group.participantNumber %> people</p>
-      <% end %>
+        <% if group.participantNumber == 1 %>
+          <p><%= group.participantNumber %> person</p>
+        <% else %>
+          <p><%= group.participantNumber %> people</p>
+        <% end %>
 
-      <% if !group.frequency.blank? %>
-        <p>Meets <%= group.frequency.downcase %></p>
-      <% end %>
+        <% if !group.frequency.blank? %>
+          <p>Meets <%= group.frequency.downcase %></p>
+        <% end %>
 
 
-      <% if !group.place.blank? %>
-        <p><%= group.place %></p>
-      <% end %>
+        <% if !group.place.blank? %>
+          <p><%= group.place %></p>
+        <% end %>
 
-      <% if !group.time.blank? %>
-        <p><%= group.time %></p>
-      <% end %>
+        <% if !group.time.blank? %>
+          <p><%= group.time %></p>
+        <% end %>
 
-      <% if !group.dayOfWeek.blank? %>
-        <p><%= group.dayOfWeek %></p>
-      <% end %>
+        <% if !group.dayOfWeek.blank? %>
+          <p><%= group.dayOfWeek %></p>
+        <% end %>
 
-      <% if !group.date.blank? %>
-        <p><%= group.date %></p>
-      <% end %>
+        <% if !group.date.blank? %>
+          <p><%= group.date %></p>
+        <% end %>
 
-    </div>
+      </div>
+    <% end %>
   <% end %>
-<% end %>
+</div>
