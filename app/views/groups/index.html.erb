@@ -1,6 +1,6 @@
 <h1>Study Groups for HCI</h1>
 
-<button><a href="/groups/new">Create new group</a></button>
+<%= link_to "Create new group", new_group_path, class: "btn btn-success" %>
 
 <div id="groupList">
   <% @groups.each do |group| %>
