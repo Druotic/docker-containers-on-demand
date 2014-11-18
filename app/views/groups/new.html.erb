@@ -1,11 +1,8 @@
 <h1>New Group</h1>
 
 <%= form_for :group, url:groups_path do |g| %>
-  <p>
-    <%= g.label :leader %><br>
-    <%= g.text_field :leader %>
-  </p>
- 
+  <%= g.hidden_field :leader_id, :value => current_user._id; %>
+
   <p>
     <%= g.label :course %><br>
     <%= g.text_field :course %>

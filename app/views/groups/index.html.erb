@@ -6,7 +6,7 @@
   <% @groups.each do |group| %>
     <%= link_to group do %>
       <div class="groupOverview">
-        <h3><%= group.leader %></h3>
+        <h3><%= group.leader.name %></h3>
 
         <%= link_to "See details", group, class: "btn btn-primary btn-lg right" %>
 

@@ -24,7 +24,7 @@ class GroupsController < ApplicationController
   # ActiveModel
   # ref - http://edgeapi.rubyonrails.org/classes/ActionController/StrongParameters.html
   def group_params
-    params.require(:group).permit(:leader, :course, :participantNumber, :frequency, :place,
+    params.require(:group).permit(:leader_id, :users, :course, :participantNumber, :frequency, :place,
                                   :time, :dayOfWeek, :date)
   end
 end
