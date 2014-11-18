@@ -1,4 +1,6 @@
-<h1>Welcome, <%= current_user.name %>!</h1>
+<div class="container">
+	<h1>Welcome, <%= current_user.name %>!</h1>
 
-<a href="/groups">List all groups</a><br>
-<a href="/groups/new">Create group</a>
+	<%= link_to "List all groups", groups_path, class: "btn btn-primary" %>
+	<%= link_to "Create group", new_group_path, class: "btn btn-default" %>
+</div>
