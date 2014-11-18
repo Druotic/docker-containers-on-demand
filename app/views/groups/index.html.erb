@@ -3,7 +3,7 @@
 <button><a href="/groups/new">Create new group</a></button>
 
 <% @groups.each do |group| %>
-  <div>
+  <div class="groupOverview">
     <h3><%= group.leader %></h3>
 
     <% if group.participantNumber == 1 %>
