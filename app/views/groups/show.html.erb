@@ -1,6 +1,11 @@
 <div class="row">
 	<div class="box-left col-md-8">
 		<h3>Qualifications</h3>
+		<!-- 
+			This list should be checkboxes. 
+			This needs to be put into the database.
+			Should not be allowed to hit 'Apply' unless all boxes are checked
+		-->
 		<ul>
 			<li>First</li>
 			<li>Second</li>
@@ -31,12 +36,20 @@
 
 		<p>
 			<strong>Place:</strong>
-			<%= @group.place %>
+			<% if @group.place.blank? %>
+					Undecided
+				<% else %>
+					<%= @group.place %>
+				<% end %>
 		</p>
 
 		<p>
 			<strong>Time:</strong>
-			<%= @group.time %>
+			<% if @group.time.blank? %>
+					Undecided
+				<% else %>
+					<%= @group.time %>
+				<% end %>
 		</p>
 
 		<p>
@@ -50,7 +63,11 @@
 
 		<p>
 			<strong>Date:</strong>
-			<%= @group.date %>
+			<% if @group.date.blank? %>
+					Undecided
+				<% else %>
+					<%= @group.date %>
+				<% end %>
 		</p>
 	</div>
 </div>
