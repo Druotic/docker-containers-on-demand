@@ -13,8 +13,13 @@
 <%= render 'layouts/header' %>
 
 <div class="container">
-	<p class="alert"><%= notice %></p>
-	<p class="alert"><%= alert %></p>
+	<% unless notice.nil? %>
+		<p class="alert"><%= notice %></p>
+	<% end %>
+	<% unless alert.nil? %>
+		<p class="alert"><%= alert %></p>
+	<% end %>
+
 	<%= yield %>
 </div>
 
