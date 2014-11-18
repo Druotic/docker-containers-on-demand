@@ -1,3 +1,30 @@
 // Place all the styles related to the groups controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.groupOverview {
+	border: solid 2px;
+	padding-left: 0.5em;
+	margin-top: 1em;
+}
+
+#groupList {
+	a {
+		text-decoration: none;
+		color: black;
+	}
+
+	a:hover {
+		text-decoration: none;
+		color: black;
+	}
+
+	.groupDetails {
+	}
+
+	.right {
+		float: right;
+		margin-right: 5em;
+	}
+}
+
