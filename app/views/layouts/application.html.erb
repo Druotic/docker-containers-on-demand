@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>StudyPal</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -9,9 +12,12 @@
 <body>
 <%= render 'layouts/header' %>
 
+<div class="container">
 <p class="alert"><%= notice %></p>
 <p class="alert"><%= alert %></p>
 <%= yield %>
+
+</div>
 
 <br> <br>
 <%= render 'layouts/footer' %>
