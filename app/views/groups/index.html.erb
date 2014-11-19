@@ -11,10 +11,10 @@
         <%= link_to "See details", group, class: "btn btn-primary btn-lg right" %>
 
         <div class="groupDetails">
-          <% if group.participantNumber == 1 %>
-            <p><%= group.participantNumber %> person</p>
+          <% if group.number_of_members == 1 %>
+            <p><%= group.number_of_members %> person</p>
           <% else %>
-            <p><%= group.participantNumber %> people</p>
+            <p><%= group.number_of_members %> people</p>
           <% end %>
 
           <% if !group.frequency.blank? %>

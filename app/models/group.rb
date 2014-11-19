@@ -4,7 +4,6 @@ class Group
 
   field :leader_id
   field :course, type: String
-  field :participantNumber, type: Integer, default: 1
   field :frequency, type: String
   field :place, type: String
   field :time, type: Time
@@ -13,6 +12,10 @@ class Group
 
   def leader
     User.find(leader_id)
+  end
+
+  def number_of_members
+    users.count
   end
 
 end
