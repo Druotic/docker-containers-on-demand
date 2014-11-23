@@ -5,6 +5,11 @@
   <%= g.hidden_field :member_id, value: current_user._id %>
 
   <p>
+    <%= g.label :title %><br>
+    <%= g.text_field :title %>
+  </p>
+
+  <p>
     <%= g.label :course %><br>
     <%= g.text_field :course %>
   </p>

@@ -2,6 +2,7 @@ class Group
   include Mongoid::Document
   has_and_belongs_to_many :users
 
+  field :title
   field :leader_id
   field :course, type: String
   field :frequency, type: String
