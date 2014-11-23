@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
+  <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>StudyPal</title>
@@ -13,14 +13,14 @@
 <%= render 'layouts/header' %>
 
 <div class="container">
-	<% unless notice.nil? %>
-		<p class="alert"><%= notice %></p>
-	<% end %>
-	<% unless alert.nil? %>
-		<p class="alert"><%= alert %></p>
-	<% end %>
+  <% unless notice.nil? %>
+    <p class="alert"><%= notice %></p>
+  <% end %>
+  <% unless alert.nil? %>
+    <p class="alert"><%= alert %></p>
+  <% end %>
 
-	<%= yield %>
+  <%= yield %>
 </div>
 
 <br> <br>
