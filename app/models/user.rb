@@ -26,4 +26,7 @@ class User
   field :current_sign_in_ip, type: String
   field :last_sign_in_ip,    type: String
 
+  def is_leader group
+    group.leader == self
+  end
 end

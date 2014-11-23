@@ -1,6 +1,8 @@
 class GroupApplicationsController < ApplicationController
 
   def index
+    @group = Group.find(params[:group_id])
+    @applications = GroupApplication.where(group_id: @group._id, status: :pending)
   end
 
   def create

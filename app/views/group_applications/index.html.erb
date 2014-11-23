@@ -1,0 +1,21 @@
+<h1> Applications for <b><%= @group.title %></b></h1>
+
+<!-- todo, list applications-->
+<div id="groupList">
+  <% @applications.each do |application| %>
+      <div class="groupOverview">
+        <%= link_to "Accept", "#", class: "btn btn-success right" %>
+        <%= link_to "Decline", "#", class: "btn btn-danger right" %>
+        <div class="groupDetails">
+          <p>
+              <b>Name: </b> <%= application.user.name %> <br>
+              <b>Email: </b> <%= application.user.email %> <br>
+          </p>
+          <p>
+              TODO: insert applicant's additional info here ....
+          </p>
+        </div>
+      </div>
+
+  <% end %>
+</div>
