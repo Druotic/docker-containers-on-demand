@@ -72,5 +72,4 @@
 	</div>
 </div>
 
-<!-- Need to make a route for this -->
-<%= link_to "Apply", "#", class: "btn btn-primary" %>
+<%= button_to "Apply", group_applications_path(group_application: {group_id: @group._id, user_id: current_user._id}), class: "btn btn-primary"%>

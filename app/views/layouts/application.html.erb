@@ -13,11 +13,8 @@
 <%= render 'layouts/header' %>
 
 <div class="container">
-  <% unless notice.nil? %>
-    <p class="alert"><%= notice %></p>
-  <% end %>
-  <% unless alert.nil? %>
-    <p class="alert"><%= alert %></p>
+  <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>"><%= value %></div>
   <% end %>
 
   <%= yield %>
