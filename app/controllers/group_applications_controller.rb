@@ -7,9 +7,21 @@ class GroupApplicationsController < ApplicationController
 
   def create
     ga = GroupApplication.new(group_application_params)
-    ga.save
-    flash[:success] = "Application submitted"
+    if ga.save
+      flash[:success] = "Application submitted"
+    else
+      flash[:failure] = "Application submission failure"
+    end
     redirect_to Group.find(ga.group_id)
+  end
+
+  def edit
+    if GroupApplication.find(params[:id]).update(status: params[:status])
+      flash[:success] = "Application #{params[:status]}"
+    else
+      flash[:failure] = "Application could not be updated"
+    end
+    redirect_to :back
   end
 
   private

@@ -3,8 +3,8 @@
 <div id="groupList">
   <% @applications.each do |application| %>
       <div class="groupOverview">
-        <%= button_to "Accept", "#", class: "btn btn-success right" %>
-        <%= button_to "Decline", "#", class: "btn btn-danger right" %>
+        <%= link_to "Accept", edit_group_application_path(application.id, status: :accepted), class: "btn btn-success right" %>
+        <%= link_to "Decline", edit_group_application_path(application.id, status: :declined), class: "btn btn-danger right" %>
         <div class="groupDetails">
           <p>
               <b>Name: </b> <%= application.user.name %> <br>
