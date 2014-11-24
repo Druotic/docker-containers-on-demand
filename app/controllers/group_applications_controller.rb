@@ -16,10 +16,14 @@ class GroupApplicationsController < ApplicationController
   end
 
   def edit
+  end
+
+  def update
     ga = GroupApplication.find(params[:id])
     ga.status = params[:status]
-    ga.group.users << ga.user
 
+    ga.group.users << ga.user if ga.status == :accepted
+    
     if ga.save
       flash[:success] = "Application #{params[:status]}"
     else
