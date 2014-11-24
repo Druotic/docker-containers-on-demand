@@ -19,6 +19,29 @@ class GroupsController < ApplicationController
     @groups = Group.all
   end
 
+  def destroy
+    group = Group.find(params[:id])
+    if group.destroy
+      flash[:success] = "Group successfully deleted"
+    else
+      flash[:failure] = "Group could not be deleted"
+    end
+
+    redirect_to groups_path
+  end
+
+  def update
+    group = Group.find(params[:id])
+    group.users.delete(User.find(params[:user_id]))
+    if group.save
+      flash[:success] = "Successfully removed from group"
+    else
+      flash[:failure] = "Removal from group failed"
+    end
+
+    redirect_to :back
+  end
+
   private
 
   # This is used for ActiveModel 4.0's strong parameter enforcement - it didn't

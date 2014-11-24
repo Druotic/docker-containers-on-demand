@@ -29,4 +29,8 @@ class User
   def is_leader group
     group.leader == self
   end
+
+  def is_member group
+    group.users.include? self
+  end
 end
