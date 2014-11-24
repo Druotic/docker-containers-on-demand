@@ -16,7 +16,7 @@
 
   <p>
     <%= g.label :frequency %><br>
-    <%= g.text_field :frequency %>
+    <%= g.select :frequency, options_for_select(%w[Once Weekly Monthly]) %>
   </p>
 
   <p>
