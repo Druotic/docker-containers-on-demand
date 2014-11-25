@@ -80,6 +80,9 @@
   <%= link_to "Destroy", group_path(@group._id), method: :delete, data: {confirm: 'Are you sure?'}, class: "btn btn-danger" %>
 <% elsif current_user.is_member @group %>
     <%= link_to "Leave", group_path(@group._id, user_id: current_user._id), data: { confirm: 'Are you sure?' }, method: :put, class: "btn btn-danger" %>
-<% else %>
-  <%= button_to "Apply", group_applications_path(group_application: {group_id: @group._id, user_id: current_user._id}), class: "btn btn-primary"%>
+<% elsif !current_user.is_pending_applicant? @group%>
+  <div class="applyBtnContainer">
+    <%= button_to "Apply", group_applications_path(group_application: {group_id: @group._id, user_id: current_user._id}), class: "btn btn-primary"%>
+  </div>
 <% end %>
+  <%= link_to "Groups", groups_path, class: "btn btn-primary" %>
