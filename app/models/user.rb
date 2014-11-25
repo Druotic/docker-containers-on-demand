@@ -37,6 +37,9 @@ class User
   end
 
   def is_pending_applicant? group
-    self.group_applications.include?(group)
+    self.group_applications.each do |ga|
+      return true if ga.group == group && ga.status.to_sym == :pending
+    end
+    false
   end
 end

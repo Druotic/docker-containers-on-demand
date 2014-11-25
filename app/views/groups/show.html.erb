@@ -75,6 +75,7 @@
 		</p>
 	</div>
 </div>
+
 <% if current_user.is_leader @group %>
   <%= link_to "Applications", group_applications_path(group_id: @group._id), class: "btn btn-primary" %>
   <%= link_to "Destroy", group_path(@group._id), method: :delete, data: {confirm: 'Are you sure?'}, class: "btn btn-danger" %>
@@ -83,6 +84,10 @@
 <% elsif !current_user.is_pending_applicant? @group%>
   <div class="applyBtnContainer">
     <%= button_to "Apply", group_applications_path(group_application: {group_id: @group._id, user_id: current_user._id}), class: "btn btn-primary"%>
+  </div>
+<% else #pending application - disable apply button %>
+  <div class="applyBtnContainer" title="Application Pending">
+    <%= button_to "Apply", group_applications_path(group_application: {group_id: @group._id, user_id: current_user._id}), class: "btn btn-primary", disabled: true%>
   </div>
 <% end %>
   <%= link_to "Groups", groups_path, class: "btn btn-primary" %>
