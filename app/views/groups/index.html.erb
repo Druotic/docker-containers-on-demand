@@ -2,6 +2,11 @@
 
 <%= link_to "Create new group", new_group_path, class: "btn btn-success" %>
 
+<% if @groups.length < 1 %>
+  <hr>
+  <h3 class="text-center">No groups have been created.</h3>
+<% end %>
+
 <div id="groupList">
   <% @groups.each do |group| %>
     <%= link_to group do %>

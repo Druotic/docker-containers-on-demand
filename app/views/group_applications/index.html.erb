@@ -1,5 +1,10 @@
 <h1> Applications for <b><%= @group.title %></b></h1>
 
+<% if @applications.length < 1 %>
+  <hr>
+  <h3>No applicants to display.</h3>
+<% end %>
+
 <div id="groupList">
   <% @applications.each do |application| %>
       <div class="groupOverview">
