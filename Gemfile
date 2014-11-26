@@ -39,12 +39,11 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin]
 # User authentication
 gem 'devise'
 gem 'therubyracer'
-# For oauth authentication
+# For oauth authentication with google
 gem 'omniauth'
-gem 'omniauth-facebook'
-gem 'omniauth-twitter'
-gem 'omniauth-google'
-gem 'omniauth-github'
+gem 'omniauth-google-oauth2'
+# For communicating with google calendar api
+gem 'google-api-client'
 
 # Use Bootstrap
 #gem "therubyracer"
