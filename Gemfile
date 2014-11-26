@@ -40,11 +40,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin]
 gem 'devise'
 gem 'therubyracer'
 # For oauth authentication
-gem 'omniauth'
-gem 'omniauth-facebook'
-gem 'omniauth-twitter'
-gem 'omniauth-google'
-gem 'omniauth-github'
+gem 'omniauth-google-oauth2'
 
 # Use Bootstrap
 #gem "therubyracer"
