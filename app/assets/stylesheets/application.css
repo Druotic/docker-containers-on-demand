@@ -14,3 +14,15 @@
  *= require_self
  *= require bootstrap_and_overrides
  */
+
+.field {
+	margin-bottom: 1em;
+}
+
+.authButtons {
+	margin-top: 5em;
+}
+
+.authButtons .btn {
+	margin-bottom: 1em;
+}
