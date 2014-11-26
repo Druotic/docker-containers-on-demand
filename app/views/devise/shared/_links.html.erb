@@ -20,6 +20,6 @@
 
 <%- if devise_mapping.omniauthable? %>
   <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= link_to "Sign in with #{provider.to_s.titleize} (Required for calendar imports!)", omniauth_authorize_path(resource_name, provider) %><br />
+    <%= link_to image_tag("Red-signin_Medium_base_20dp.png"), omniauth_authorize_path(resource_name, provider) %><br />
   <% end -%>
 <% end -%>
