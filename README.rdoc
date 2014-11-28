@@ -7,11 +7,14 @@ may also take place.
 
 == Getting Started
 
-1) Install
+1) Set environment variables `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` to your 
+respective Google app ID and secret. This is required to communicate with Google's APIs.
+
+2) Install
   bundle install
 
-2) Run the server
+3) Run the server
   rails server
 
-3) Using a browser, start using the application at
+4) Using a browser, start using the application at
   http://localhost:3000
