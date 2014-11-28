@@ -234,11 +234,12 @@ Devise.setup do |config|
   # up on your models and hooks.
   require 'omniauth-google-oauth2'
   config.omniauth :google_oauth2, ENV["GOOGLE_CLIENT_ID"], ENV["GOOGLE_CLIENT_SECRET"], {
-      :name => "google",
+      #:name => "google",
       :scope => "email, profile, https://www.googleapis.com/auth/calendar",
       :prompt => "select_account",
       :image_aspect_ratio => "square",
-      :image_size => 50
+      :image_size => 50,
+      :access_type => "offline"
     }
 
   # ==> Warden configuration
