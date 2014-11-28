@@ -49,10 +49,9 @@
   </div>
 <% end %>
 
-<%= link_to "Back", :back, class: "btn btn-default btn-sm" %>
 <hr>
 
-<div class="row">
+<div class="row" align="center">
   <h3>Danger Zone</h3>
 
   <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger" %>

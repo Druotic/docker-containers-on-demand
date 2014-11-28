@@ -16,7 +16,7 @@
 
   <p>
     <%= g.label :frequency %><br>
-    <%= g.select :frequency, options_for_select(%w[Once Weekly Monthly Other]) %>
+    <%= g.select :frequency, options_for_select(%w[Once Weekly Monthly Other]), {},  class: 'form-control' %>
   </p>
 
   <hr>
@@ -40,6 +40,6 @@
   </div>
  
   <p>
-    <%= g.submit %>
+    <%= g.submit "Create Group", class: 'btn btn-primary' %>
   </p>
 <% end %>
