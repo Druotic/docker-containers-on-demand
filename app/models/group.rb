@@ -20,4 +20,12 @@ class Group
     users.count
   end
 
+  def calendars_string
+    combined_s = ""
+    users.each do |user|
+      combined_s += "src=%s&" % user.google_calendar_id
+    end
+
+    combined_s
+  end
 end
