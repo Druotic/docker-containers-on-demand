@@ -61,7 +61,7 @@
 			<% if @group.date.blank? %>
 					Undecided
 				<% else %>
-					<%= @group.date %>
+					<%= @group.date.strftime("%a %d %b %Y") %>
 				<% end %>
 		</p>
 	</div>

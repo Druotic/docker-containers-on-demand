@@ -38,7 +38,7 @@
           <% end %>
 
           <% if !group.date.blank? %>
-            <p><%= group.date %></p>
+            <p><%= group.date.strftime("%a %d %b %Y") %></p>
           <% end %>
         </div>
 
