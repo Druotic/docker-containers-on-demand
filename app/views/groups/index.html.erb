@@ -17,17 +17,14 @@
 
         <div class="groupDetails">
           <% if group.number_of_members == 1 %>
-            <p><%= group.number_of_members %> person</p>
+            <p><%= group.number_of_members %> member</p>
           <% else %>
-            <p><%= group.number_of_members %> people</p>
+            <p><%= group.number_of_members %> members</p>
           <% end %>
 
-          <p><%= group.leader.name %></p>
-
-          <% if !group.frequency.blank? %>
-            <p>Meets <%= group.frequency.downcase %></p>
+          <% if !group.course.blank? %>
+              <p><%= group.course %></p>
           <% end %>
-
 
           <% if !group.place.blank? %>
             <p><%= group.place %></p>
