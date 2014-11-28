@@ -9,7 +9,6 @@ class Group
   field :frequency, type: String
   field :place, type: String
   field :time, type: Time
-  field :dayOfWeek, type: String
   field :date, type: Date
 
   def leader
@@ -27,5 +26,13 @@ class Group
     end
 
     combined_s
+  end
+
+  def converted_time
+      self.time.strftime("%l:%M %P")
+  end
+
+  def day_of_week
+    self.time.strftime("%A")
   end
 end

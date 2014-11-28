@@ -54,6 +54,6 @@ class GroupsController < ApplicationController
     # but we don't want to pass the hash with member_id in it to the  #new call.  Having to always delete it seems
     # bad.  TODO: Better way to do this?
     params.require(:group).permit(:leader_id, :member_id, :title, :course, :participantNumber, :frequency, :place,
-                                  :time, :dayOfWeek, :date, :user_ids => [])
+                                  :time, :date, :user_ids => [])
   end
 end

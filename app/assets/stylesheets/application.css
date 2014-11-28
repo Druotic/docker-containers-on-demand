@@ -26,3 +26,12 @@
 .authButtons .btn {
 	margin-bottom: 1em;
 }
+
+.main-header {
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.main-footer {
+    padding-left: 10px;
+}

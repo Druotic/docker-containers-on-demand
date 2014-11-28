@@ -52,16 +52,7 @@
 			<% if @group.time.blank? %>
 					Undecided
 				<% else %>
-					<%= @group.time %>
-				<% end %>
-		</p>
-
-		<p>
-			<strong>Day:</strong>
-				<% if @group.dayOfWeek.blank? %>
-					Undecided
-				<% else %>
-					<%= @group.dayOfWeek %>
+					<%= @group.converted_time %>
 				<% end %>
 		</p>
 

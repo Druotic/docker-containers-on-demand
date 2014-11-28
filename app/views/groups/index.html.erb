@@ -34,11 +34,7 @@
           <% end %>
 
           <% if !group.time.blank? %>
-            <p><%= group.time %></p>
-          <% end %>
-
-          <% if !group.dayOfWeek.blank? %>
-            <p><%= group.dayOfWeek %></p>
+            <p><%= group.converted_time %></p>
           <% end %>
 
           <% if !group.date.blank? %>
