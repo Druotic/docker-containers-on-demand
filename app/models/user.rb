@@ -37,6 +37,9 @@ class User
   field :refresh_token
   field :expiration
 
+  field :qualifications
+  validates :qualifications, length: { maximum: 600 }
+
   # Google calendar ID of user's public "class_schedule" calendar
   field :calendar_id
 

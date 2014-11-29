@@ -16,7 +16,12 @@
               <b>Email: </b> <%= application.user.email %> <br>
           </p>
           <p>
-              TODO: insert applicant's additional info here ....
+              Qualifications <br>
+              <% if applications.user.qualifications.blank? %>
+                No qualifications available.
+              <% else %>
+                <%= application.user.qualifications %>
+              <% end %>
           </p>
         </div>
       </div>

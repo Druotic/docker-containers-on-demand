@@ -27,7 +27,9 @@ class Group
   def calendars_string
     combined_s = ""
     users.each do |user|
-      combined_s += "src=%s&" % user.google_calendar_id
+      if !user.access_token.blank?
+        combined_s += "src=%s&" % user.google_calendar_id
+      end
     end
 
     combined_s
