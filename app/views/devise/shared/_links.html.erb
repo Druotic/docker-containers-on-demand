@@ -1,6 +1,6 @@
 <div class="col-md-6 text-center authButtons">
   <%- if controller_name != 'sessions' %>
-    <%= link_to "Log in", new_session_path(resource_name) %><br />
+    <%= link_to "Log in", new_session_path(resource_name), class: "btn btn-default" %><br />
   <% end -%>
 
   <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
