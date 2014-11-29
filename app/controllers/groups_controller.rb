@@ -21,7 +21,15 @@ class GroupsController < ApplicationController
   end
 
   def index
-    @groups = Group.all
+    if params[:scope] == "my groups"
+      @groups = current_user.groups
+    elsif params[:scope] == "pending"
+      @groups = Group.all.select do |group| current_user.is_pending_applicant? group end
+    elsif params[:scope] == "new"
+      @groups = Group.all - current_user.groups - Group.all.select do |group| current_user.is_pending_applicant? group end
+    else
+      @groups = Group.all
+    end
   end
 
   def destroy
