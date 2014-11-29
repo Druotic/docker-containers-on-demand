@@ -35,6 +35,7 @@
 
     </div>
   </div>
+<br>
   <div class="row text-center">
     <div class="field">
       <h4>Confirm changes</h4>
@@ -43,15 +44,15 @@
     </div>
 
     <div class="actions">
-      <%= f.submit "Update", class: "btn btn-primary btn-lg" %>
+      <%= f.submit "Update Credentials", class: "btn btn-primary btn-lg" %>
     </div>
   </div>
-
+<br>
   <hr>
 
 
 <% end %>
-
+<br>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
   <div class="text-center">
@@ -60,12 +61,12 @@
       <%= f.text_area :qualifications, size: "100x8", maxlength: 600 %>
     </div>
   </div>
-  <div class="actions">
-      <%= f.submit "Update", class:"btn btn-primary btn-lg" %>
+  <div class="actions" align="center">
+      <%= f.submit "Update Qualifications", class:"btn btn-primary btn-lg" %>
   </div>
 <% end %>
 
-
+<br>
 <hr>
 
 <div class="row" align="center">
