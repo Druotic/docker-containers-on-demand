@@ -80,7 +80,7 @@
 <div id="group-buttons" class="row" >
   <div class="btn-g1 col-md-6">
 
-    <%= link_to "Groups", groups_path, class: "btn btn-primary" %>
+    <%= link_to "Back", :back, class: "btn btn-primary" %>
     <% if current_user.is_member @group %>
       <%= link_to "Check Messages", messages_path(group_id: @group.id), class: "btn btn-primary" %>
     <% end %>

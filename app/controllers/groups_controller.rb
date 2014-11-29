@@ -40,7 +40,7 @@ class GroupsController < ApplicationController
       flash[:danger] = "Group could not be deleted"
     end
 
-    redirect_to groups_path
+    redirect_to welcome_index_path
   end
 
   def edit
