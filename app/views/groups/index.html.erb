@@ -1,10 +1,10 @@
-<h1>Study Groups for HCI</h1>
+<h1>Study Groups</h1>
 
 <%= link_to "Create new group", new_group_path, class: "btn btn-success" %>
 
 <% if @groups.length < 1 %>
   <hr>
-  <h3 class="text-center">No groups have been created.</h3>
+  <h3 class="text-center">No groups to display.</h3>
 <% end %>
 
 <div id="groupList">
