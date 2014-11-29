@@ -35,7 +35,21 @@ class GroupsController < ApplicationController
     redirect_to groups_path
   end
 
+  def edit
+    @group = Group.find(params[:id])
+  end
   def update
+    if params[:user_id].blank?
+      group = Group.find(params[:id])
+      if group.update_attributes(group_params)
+        flash[:success] = "Sucessfully updated group"
+      else
+        flash[:failure] = "Failed to update group"
+      end
+      redirect_to group
+      return
+    end
+
     group = Group.find(params[:id])
     group.users.delete(User.find(params[:user_id]))
     if group.save
