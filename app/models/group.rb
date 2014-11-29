@@ -10,6 +10,11 @@ class Group
   field :place, type: String
   field :time, type: Time
   field :date, type: Date
+  field :description
+
+  validates :title, :leader_id, :course, :frequency, presence: true
+  validates :description, length: { maximum: 600 }
+
 
   def leader
     User.find(leader_id)
