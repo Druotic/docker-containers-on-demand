@@ -1,19 +1,5 @@
 <div class="row">
-	<div class="box-left col-md-8">
-		<h3>Qualifications</h3>
-		<!-- 
-			This list should be checkboxes. 
-			This needs to be put into the database.
-			Should not be allowed to hit 'Apply' unless all boxes are checked
-		-->
-		<ul>
-			<li>First</li>
-			<li>Second</li>
-		</ul>
-	</div>
-
-
-	<div class="box-right col-md-4">
+  <div class="box-left col-md-4" >
     <p>
         <strong>Title:</strong>
         <%= @group.title %>
@@ -64,10 +50,24 @@
 					<%= @group.date.strftime("%a %d %b %Y") %>
 				<% end %>
 		</p>
+  </div>
+
+
+	<div class="box-right col-md-8">
+    <h3 id="notes">Notes</h3>
+
+    <p>
+      <% if @group.description.blank? %>
+        No description available.
+      <% else %>
+        <%= @group.description %>
+      <% end %>
+    </p>
+
 	</div>
 </div>
 <br>
-<div class="row" align="center">
+<div id="group-buttons" class="row" >
   <div id="group-buttons" class="">
     <% if current_user.is_leader @group %>
       <%= link_to "Applications", group_applications_path(group_id: @group._id), class: "btn btn-primary" %>
