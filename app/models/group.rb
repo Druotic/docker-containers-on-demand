@@ -2,6 +2,7 @@ class Group
   include Mongoid::Document
   has_and_belongs_to_many :users
   has_many :group_applications
+  has_many :messages
 
   field :title
   field :leader_id

@@ -18,5 +18,6 @@ Rails.application.routes.draw do
   #   resources :products
   resources :groups
   resources :group_applications
+  resources :messages
 
 end
