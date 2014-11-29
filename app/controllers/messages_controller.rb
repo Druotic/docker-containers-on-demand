@@ -28,6 +28,7 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     @message.group = @group
     @message.user = current_user
+    @message.created_at = Time.now()
     if @message.save
       flash[:success] = "Message saved"
     else

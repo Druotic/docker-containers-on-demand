@@ -14,6 +14,7 @@
           <p>
               <b>Name: </b> <%= message.user.name %> <br>
               <b>Email: </b> <%= message.user.email %> <br>
+              <b>Posted:</b> <%= message.created_at.strftime("%c") %> <br>
           </p>
           <p>
               <b>Message Content</b> <br>
