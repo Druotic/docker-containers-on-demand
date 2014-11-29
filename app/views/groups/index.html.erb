@@ -1,10 +1,11 @@
-<h1>Study Groups for HCI</h1>
+<h1>Study Groups</h1>
 
 <%= link_to "Create new group", new_group_path, class: "btn btn-success" %>
+<%= link_to "Back", welcome_index_path, class: "btn btn-primary" %>
 
 <% if @groups.length < 1 %>
   <hr>
-  <h3 class="text-center">No groups have been created.</h3>
+  <h3 class="text-center">No groups to display.</h3>
 <% end %>
 
 <div id="groupList">
@@ -17,32 +18,25 @@
 
         <div class="groupDetails">
           <% if group.number_of_members == 1 %>
-            <p><%= group.number_of_members %> person</p>
+            <p><%= group.number_of_members %> member</p>
           <% else %>
-            <p><%= group.number_of_members %> people</p>
+            <p><%= group.number_of_members %> members</p>
           <% end %>
 
-          <p><%= group.leader.name %></p>
-
-          <% if !group.frequency.blank? %>
-            <p>Meets <%= group.frequency.downcase %></p>
+          <% if !group.course.blank? %>
+              <p><%= group.course %></p>
           <% end %>
-
 
           <% if !group.place.blank? %>
             <p><%= group.place %></p>
           <% end %>
 
           <% if !group.time.blank? %>
-            <p><%= group.time %></p>
-          <% end %>
-
-          <% if !group.dayOfWeek.blank? %>
-            <p><%= group.dayOfWeek %></p>
+            <p><%= group.converted_time %></p>
           <% end %>
 
           <% if !group.date.blank? %>
-            <p><%= group.date %></p>
+            <p><%= group.date.strftime("%a %d %b %Y") %></p>
           <% end %>
         </div>
 

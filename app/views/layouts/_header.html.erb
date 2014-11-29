@@ -1,12 +1,12 @@
 <header>
-  <%= link_to image_tag("studyPal_logo_reduced.jpg"), root_path %>
-  <%= link_to "Home", welcome_index_path, class: "btn btn-default" %>
-<% if signed_in? %>
-  <%= link_to "Profile", edit_user_registration_path, class: "btn btn-default" %>
-  <%= link_to "Settings", "#", class: "btn btn-default" %>
-  <%= link_to "Sign out", destroy_user_session_path, :method => :delete, class: "btn btn-default" %>
-<% else %>
-  <%= link_to "Sign in", new_user_session_path, class: "btn btn-default" %>
-<% end %>
-  <hr>
+<div class="main-header">
+    <%= link_to image_tag("studyPal_logo_reduced.jpg"), root_path %>&nbsp&nbsp
+    <%= link_to "Home", welcome_index_path, class: "btn btn-default" %>
+  <% if signed_in? %>
+    <%= link_to "Profile", edit_user_registration_path, class: "btn btn-default" %>
+    <%= link_to "Sign out", destroy_user_session_path, :method => :delete, class: "btn btn-default" %>
+  <% else %>
+    <%= link_to "Sign in", new_user_session_path, class: "btn btn-default" %>
+  <% end %>
+</div>
 </header>

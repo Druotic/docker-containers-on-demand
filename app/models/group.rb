@@ -2,6 +2,7 @@ class Group
   include Mongoid::Document
   has_and_belongs_to_many :users
   has_many :group_applications
+  has_many :messages
 
   field :title
   field :leader_id
@@ -9,8 +10,12 @@ class Group
   field :frequency, type: String
   field :place, type: String
   field :time, type: Time
-  field :dayOfWeek, type: String
   field :date, type: Date
+  field :description
+
+  validates :title, :leader_id, :course, :frequency, presence: true
+  validates :description, length: { maximum: 600 }
+
 
   def leader
     User.find(leader_id)
@@ -20,4 +25,22 @@ class Group
     users.count
   end
 
+  def calendars_string
+    combined_s = ""
+    users.each do |user|
+      if !user.access_token.blank?
+        combined_s += "src=%s&" % user.google_calendar_id
+      end
+    end
+
+    combined_s
+  end
+
+  def converted_time
+      self.time.strftime("%l:%M %P")
+  end
+
+  def day_of_week
+    self.time.strftime("%A")
+  end
 end

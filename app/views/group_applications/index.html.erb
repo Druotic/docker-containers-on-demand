@@ -8,15 +8,20 @@
 <div id="groupList">
   <% @applications.each do |application| %>
       <div class="groupOverview">
-        <%= link_to "Accept", group_application_path(application.id, status: :accepted), method: :put, class: "btn btn-success right" %>
-        <%= link_to "Decline", group_application_path(application.id, status: :declined), method: :put, class: "btn btn-danger right" %>
+        <%= link_to "Accept", group_application_path(application.id, status: :accepted), method: :put, class: "btn btn-success right ga-btn" %>
+        <%= link_to "Decline", group_application_path(application.id, status: :declined), method: :put, class: "btn btn-danger right ga-btn" %>
         <div class="groupDetails">
           <p>
               <b>Name: </b> <%= application.user.name %> <br>
               <b>Email: </b> <%= application.user.email %> <br>
           </p>
           <p>
-              TODO: insert applicant's additional info here ....
+              <b>Qualifications</b> <br>
+              <% if application.user.qualifications.blank? %>
+                No qualifications available.
+              <% else %>
+                <%= application.user.qualifications %>
+              <% end %>
           </p>
         </div>
       </div>

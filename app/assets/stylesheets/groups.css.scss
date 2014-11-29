@@ -20,6 +20,7 @@
 	}
 
 	.groupDetails {
+      padding-left: 10px;
 	}
 
 	.right {
@@ -30,4 +31,28 @@
 
 .applyBtnContainer {
   display: inline-block;
+}
+
+.create-group-submit {
+  padding-left: 0px;
+  padding-top: 50px;
+}
+
+.header {
+  margin-top: 5px;
+  padding-top: 0px;
+  padding-bottom: 10px;
+  padding-left: 0px;
+}
+
+.group-headers {
+  margin-top: 0px;
+}
+
+#group-buttons {
+  margin-left: 10px;
+}
+
+#group-calendar {
+  margin-top: 20px;
 }

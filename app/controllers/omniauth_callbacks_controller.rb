@@ -1,6 +1,12 @@
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
-  def google
-
+  def google_oauth2
+    # s = ""
+    # for k,v in request.env['omniauth.auth'].credentials
+    #   s = "%s %s:%s" % [s, k, v]
+    # end
+    #
+    # render text: s
+    # return
     @user = User.find_for_google_oauth2(request.env["omniauth.auth"], current_user)
 
     if @user.persisted?

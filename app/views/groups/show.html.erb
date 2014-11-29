@@ -1,19 +1,7 @@
 <div class="row">
-	<div class="box-left col-md-8">
-		<h3>Qualifications</h3>
-		<!-- 
-			This list should be checkboxes. 
-			This needs to be put into the database.
-			Should not be allowed to hit 'Apply' unless all boxes are checked
-		-->
-		<ul>
-			<li>First</li>
-			<li>Second</li>
-		</ul>
-	</div>
+  <div class="box-left col-md-3" >
+    <h3 class="group-headers"">Info</h3>
 
-
-	<div class="box-right col-md-4">
     <p>
         <strong>Title:</strong>
         <%= @group.title %>
@@ -52,16 +40,7 @@
 			<% if @group.time.blank? %>
 					Undecided
 				<% else %>
-					<%= @group.time %>
-				<% end %>
-		</p>
-
-		<p>
-			<strong>Day:</strong>
-				<% if @group.dayOfWeek.blank? %>
-					Undecided
-				<% else %>
-					<%= @group.dayOfWeek %>
+					<%= @group.converted_time %>
 				<% end %>
 		</p>
 
@@ -70,24 +49,85 @@
 			<% if @group.date.blank? %>
 					Undecided
 				<% else %>
-					<%= @group.date %>
+					<%= @group.date.strftime("%a %d %b %Y") %>
 				<% end %>
 		</p>
+  </div>
+
+  <div class="col-md-4">
+    <h3 class="group-headers"">Members</h3>
+    <% @group.users.each do |user| %>
+      <p>
+        <b><%= user.name %></b><br>
+        <%= user.email%>
+      </p>
+    <% end %>
+  </div>
+
+	<div class="box-right col-md-5">
+    <h3 class="group-headers">Notes</h3>
+    <p>
+      <% if @group.description.blank? %>
+        No description available.
+      <% else %>
+        <%= @group.description %>
+      <% end %>
+    </p>
+
 	</div>
 </div>
+<br>
+<div id="group-buttons" class="row" >
+  <div class="btn-g1 col-md-6">
 
-<% if current_user.is_leader @group %>
-  <%= link_to "Applications", group_applications_path(group_id: @group._id), class: "btn btn-primary" %>
-  <%= link_to "Destroy", group_path(@group._id), method: :delete, data: {confirm: 'Are you sure?'}, class: "btn btn-danger" %>
-<% elsif current_user.is_member @group %>
-  <%= link_to "Leave", group_path(@group._id, user_id: current_user._id), data: { confirm: 'Are you sure?' }, method: :put, class: "btn btn-danger" %>
-<% elsif current_user.is_pending_applicant? @group %>
-  <div class="applyBtnContainer" title="Application Pending">
-    <%= button_to "Apply", group_applications_path(group_application: {group_id: @group._id, user_id: current_user._id}), class: "btn btn-primary", disabled: true%>
+    <%= link_to "Groups", groups_path, class: "btn btn-primary" %>
+    <% if current_user.is_member @group %>
+      <%= link_to "Check Messages", messages_path(group_id: @group.id), class: "btn btn-primary" %>
+    <% end %>
+
   </div>
-<% else %>
-  <div class="applyBtnContainer">
-    <%= button_to "Apply", group_applications_path(group_application: {group_id: @group._id, user_id: current_user._id}), class: "btn btn-primary"%>
+
+  <div class="btn-g2">
+    <% if current_user.is_member(@group) && !current_user.is_leader(@group) %>
+      <%= link_to "Leave", group_path(@group._id, user_id: current_user._id), data: { confirm: 'Are you sure?' }, method: :put, class: "btn btn-danger" %>
   </div>
-<% end %>
-  <%= link_to "Groups", groups_path, class: "btn btn-primary" %>
+
+  <div class="btn-g1">
+    <% elsif current_user.is_pending_applicant? @group %>
+      <div class="applyBtnContainer" title="Application Pending">
+        <%= button_to "Apply", group_applications_path(group_application: {group_id: @group._id, user_id: current_user._id}), class: "btn btn-primary", disabled: true%>
+      </div>
+  </div>
+  <div class="btn-g2">
+    <% elsif current_user.is_leader @group %>
+      <%= link_to "Edit Group", edit_group_path(@group.id), class: "btn btn-primary" %>
+      <%= link_to "Check Applications", group_applications_path(group_id: @group._id), class: "btn btn-primary" %>
+      <%= link_to "Destroy", group_path(@group._id), method: :delete, data: {confirm: 'Are you sure?'}, class: "btn btn-danger" %>
+  </div>
+  <div class="btn-g1">
+    <% else %>
+      <div class="applyBtnContainer">
+        <%= button_to "Apply", group_applications_path(group_application: {group_id: @group._id, user_id: current_user._id}), class: "btn btn-primary"%>
+      </div>
+    <% end %>
+  </div>
+
+</div>
+<br>
+<hr>
+<div class="row">
+
+  <div id="group-calendar" class="col-md-10 col-md-offset-1">
+    <% calendars_string = "#{@group.calendars_string}" %>
+    <iframe src="https://www.google.com/calendar/embed?title=Group Schedule&<%= calendars_string %>"
+            width=100% height=100% style="border: 0" frameborder="0" scrolling="no">
+    </iframe>
+  </div>
+</div>
+
+<script>
+  $( document ).ready(function() {
+    var calendar_width = $('#group-calendar').width();
+    $('#group-calendar').css( {'height': calendar_width*0.75 + 'px'} );
+  });
+</script>
