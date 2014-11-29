@@ -1,0 +1,26 @@
+<h1> Messages for <b><%= @group.title %></b></h1>
+
+<% if @messages.length < 1 %>
+  <hr>
+  <h3>No messages to display.</h3>
+<% end %>
+<br>
+<%= link_to 'New Message', new_message_path(group_id: @group.id), class: "btn btn-success" %>
+<%= link_to 'Back', group_path(@group.id), class: "btn btn-primary" %>
+  <div id="groupList">
+  <% @messages.each do |message| %>
+      <div class="groupOverview">
+        <div class="groupDetails">
+          <p>
+              <b>Name: </b> <%= message.user.name %> <br>
+              <b>Email: </b> <%= message.user.email %> <br>
+          </p>
+          <p>
+              <b>Message Content</b> <br>
+              <%= message.content %>
+          </p>
+        </div>
+      </div>
+
+  <% end %>
+</div>

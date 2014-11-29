@@ -79,12 +79,16 @@
 <br>
 <div id="group-buttons" class="row" >
   <div id="group-buttons" class="">
+
+    <% if current_user.is_member @group %>
+      <%= link_to "Messages", messages_path(group_id: @group.id), class: "btn btn-primary" %>
+    <% end %>
+
     <% if current_user.is_leader @group %>
       <%= link_to "Edit", edit_group_path(@group.id), class: "btn btn-primary" %>
       <%= link_to "Applications", group_applications_path(group_id: @group._id), class: "btn btn-primary" %>
       <%= link_to "Destroy", group_path(@group._id), method: :delete, data: {confirm: 'Are you sure?'}, class: "btn btn-danger" %>
     <% elsif current_user.is_member @group %>
-      <%= link_to "Messages", messages_path, class: "btn btn-primary" %>
       <%= link_to "Leave", group_path(@group._id, user_id: current_user._id), data: { confirm: 'Are you sure?' }, method: :put, class: "btn btn-danger" %>
     <% elsif current_user.is_pending_applicant? @group %>
       <div class="applyBtnContainer" title="Application Pending">
@@ -95,6 +99,7 @@
         <%= button_to "Apply", group_applications_path(group_application: {group_id: @group._id, user_id: current_user._id}), class: "btn btn-primary"%>
       </div>
     <% end %>
+
       <%= link_to "Groups", groups_path, class: "btn btn-primary" %>
   </div>
 </div>
@@ -102,7 +107,7 @@
 <hr>
 <div class="row">
 
-  <div id="group-calendar" class="col-md-10 col-md-offset-0">
+  <div id="group-calendar" class="col-md-10 col-md-offset-1">
     <% calendars_string = "#{@group.calendars_string}" %>
     <iframe src="https://www.google.com/calendar/embed?title=Group Schedule&<%= calendars_string %>"
             width=100% height=100% style="border: 0" frameborder="0" scrolling="no">
