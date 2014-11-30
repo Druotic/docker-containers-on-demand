@@ -9,6 +9,7 @@ class GroupsController < ApplicationController
     @group = Group.new(group_params)
     if @group.save
       flash[:success] = "Group successfully created"
+      session[:last_scope] = "my groups"
       redirect_to @group
     else
       flash.now[:danger] = "Failed to create group, check required fields"
@@ -30,6 +31,7 @@ class GroupsController < ApplicationController
     else
       @groups = Group.all
     end
+    session[:last_scope] = params[:scope]
   end
 
   def destroy
