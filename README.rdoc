@@ -5,6 +5,13 @@ partners.  StudyPal matches individuals based on qualifications and
 preferences.  Once a group is formed, additional communication and coordination
 may also take place.
 
+<b>Pre-reqs:</b>
+
+Ensure MongoDB is running - http://docs.mongodb.org/manual/installation/
+
+Request a Google App client ID and secret.  Be sure to set redirect URI's appropriately for callbacks as well. E.g.
+http://http://localhost:3000/users/auth/google_oauth2/callback
+
 == Getting Started
 
 1) Set environment variables `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` to your 
