@@ -1,9 +1,0 @@
-<div class="container">
-	<h1>Welcome, <%= current_user.name %>!</h1>
-  <br>
-
-  <%= link_to "My Groups", groups_path(scope: "my groups"), class: "btn btn-primary" %>
-  <%= link_to "Pending Groups", groups_path(scope: "pending"), class: "btn btn-warning" %>
-	<%= link_to "Explore Groups", groups_path(scope: "new"), class: "btn btn-primary" %>
-	<%= link_to "Create Group", new_group_path, class: "btn btn-success" %>
-</div>
