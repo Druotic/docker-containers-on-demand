@@ -1,9 +1,10 @@
-== Welcome to StudyPal
+== Containers on Demand
 
-StudyPal is a web application that allows students to find other study
-partners.  StudyPal matches individuals based on qualifications and 
-preferences.  Once a group is formed, additional communication and coordination
-may also take place.
+This is the web application portion of our containers on demand system.
+More details to come.
+
+Pre-reqs below will also be modified in the future.  Google sign-in will likely
+be removed for automated deployment reasons.
 
 <b>Pre-reqs:</b>
 
@@ -25,10 +26,3 @@ respective Google app ID and secret. This is required to communicate with Google
 
 4) Using a browser, start using the application at
   http://localhost:3000
-  
-5) Optional: This step is optional for the app to run, but required to have your Google Calendar
-imported and displayed in the group view.  Go to Google Calendars management, create a calendar named 'class_schedule'.
-Then, go to calendar settings -> share this calendar -> make public.
-
-Obviously, it would be better to not rely on the hard-coded calendar name/public, but it was a compromise to rush
-for the deadline.
