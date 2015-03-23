@@ -20,8 +20,6 @@
       <% end %>
     </div>
 
-
-
     <div class="col-md-6 text-center">
       <div class="field">
         <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
@@ -41,6 +39,10 @@
       <h4>Confirm changes</h4>
       <%= f.label :current_password %><br />
       <%= f.password_field :current_password, autocomplete: "off" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Update Credentials", class: "btn btn-primary btn-lg" %>
     </div>
   </div>
 <% end %>
