@@ -10,19 +10,13 @@ be removed for automated deployment reasons.
 
 Ensure MongoDB is running - http://docs.mongodb.org/manual/installation/
 
-Request a Google App client ID and secret.  Be sure to set redirect URI's appropriately for callbacks as well. E.g.
-http://http://localhost:3000/users/auth/google_oauth2/callback
-
 == Getting Started
 
-1) Set environment variables `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` to your 
-respective Google app ID and secret. This is required to communicate with Google's APIs.
-
-2) Install
+1) Install
   bundle install
 
-3) Run the server
+2) Run the server
   rails server
 
-4) Using a browser, start using the application at
+3) Using a browser, start using the application at
   http://localhost:3000
