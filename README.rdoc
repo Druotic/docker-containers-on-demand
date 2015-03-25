@@ -3,8 +3,6 @@
 This is the web application portion of our containers on demand system.
 More details to come.
 
-Pre-reqs below will also be modified in the future.  Google sign-in will likely
-be removed for automated deployment reasons.
 
 <b>Pre-reqs:</b>
 
