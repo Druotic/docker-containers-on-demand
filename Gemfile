@@ -26,9 +26,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin]
 
 # User authentication
 gem 'devise'
-gem 'therubyracer'
 
-# Use Bootstrap
-#gem "therubyracer"
+gem 'therubyracer'
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+# Use Bootstrap
 gem "twitter-bootstrap-rails"
