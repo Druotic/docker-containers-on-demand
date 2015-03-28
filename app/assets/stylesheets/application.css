@@ -27,11 +27,6 @@
 	margin-bottom: 1em;
 }
 
-.main-header {
-    padding-top: 10px;
-    padding-left: 10px;
-}
-
 .main-footer {
     padding-left: 10px;
     padding-bottom: 20px;
@@ -39,4 +34,19 @@
 
 .form-control {
     width: auto;
+}
+
+.nav li {
+	padding-left: 1em;
+}
+
+.nav li a {
+	font-size: 150%;
+	font-weight: bold;
+	font-family: 'AsapRegular';
+}
+
+.navbar-brand {
+    overflow: visible;
+    padding-top: 5px;
 }
