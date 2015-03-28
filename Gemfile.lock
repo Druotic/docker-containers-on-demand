@@ -48,7 +48,11 @@ GEM
       responders
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+    docker-api (1.20.0)
+      excon (>= 0.38.0)
+      json
     erubis (2.7.0)
+    excon (0.45.1)
     execjs (2.2.2)
     hike (1.2.3)
     i18n (0.6.11)
@@ -152,6 +156,7 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
   devise
+  docker-api
   jbuilder (~> 2.0)
   jquery-rails
   less-rails
