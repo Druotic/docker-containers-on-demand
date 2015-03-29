@@ -5,6 +5,14 @@ class ReservationsController < ApplicationController
   end
 
   def new
+
+    container = Docker::Container.create(Cmd: '/bin/sh', Image: 'fedora')
+    puts container.json
+    container.start
+    puts container.json
+    # Short lived...next step is to figure out how to make long running
+    # and ability to ssh in/out at will.
+
     # if reservation created successfully
     if false
       flash[:success] = "Reservation created successfully"
