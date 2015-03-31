@@ -13,11 +13,8 @@ expect eof
 spawn ssh -p $port root@0.0.0.0 -oUserKnownHostsFile=/dev/null -t -oStrictHostKeyChecking=no "passwd $user"
 expect "assword:"
 send "$password\r"
-#expect "UNIX password:"
-#send "$password\r"
 expect "password:"
 send "$pass\r"
 expect "password:"
 send "$pass\r"
 expect eof
-
