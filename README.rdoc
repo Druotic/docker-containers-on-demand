@@ -14,7 +14,7 @@ platforms.
 == Getting Started
 
 1) Install bash dependencies (for RPM-based)
-  sudo yum install -y expect
+  sudo yum install -y expect docker
 
 2) Install gems
   bundle install
