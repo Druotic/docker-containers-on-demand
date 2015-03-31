@@ -7,12 +7,15 @@
 # Edit /etc/sudoers accordingly and commit
 # All provisioning done in image launch-new
 
-# Command line arguments : 
+# Command line arguments :
 # $0 => ./launch.sh
-# $1 => name of new container 
+# $1 => name of new container
 # $2 => port for new container
 # $3 => username for new owner of container
 # $4 => password for new owner
+
+# Directory containing launch.sh and change_passwd.exp
+CURRENT_DIR="`pwd`/`dirname $0`"
 
 # Launch new container
 docker run -d --name ${1} -p ${2}:22 sktomer/centos7_ssh_plus_user_acc
@@ -27,5 +30,4 @@ sleep 5
 password=csc547team4
 
 # SSH into container, create user account and change password
-expect -f change_passwd.exp $2 $3 $4
-
+expect -f $CURRENT_DIR/change_passwd.exp $2 $3 $4
