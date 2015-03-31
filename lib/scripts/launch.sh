@@ -10,24 +10,23 @@
 # Command line arguments :
 # $0 => ./launch.sh
 # $1 => name of new container
-# $2 => port for new container
-# $3 => username for new owner of container
-# $4 => password for new owner
+# $2 => username for new owner of container
+# $3 => password for new owner
 
 # Directory containing launch.sh and change_passwd.exp
 CURRENT_DIR="`pwd`/`dirname $0`"
 
 # Launch new container
-docker run -d --name ${1} -p ${2}:22 sktomer/centos7_ssh_plus_user_acc
-docker ps -a
+docker run -d --name ${1} -P sktomer/centos7_ssh_plus_user_acc
+port=`docker inspect ${1} | grep HostPort | egrep -o [0-9]+`
 
 sleep 5
 
 # Get auto-generated root and app-admin passwords from container logs
 # rootpass=`docker logs ${1} | grep "root :" | awk 'NF>1{print $NF}'`;
 # adminpass=`docker logs ${1} | grep "app-admin :" | awk 'NF>1{print $NF}'`;
-# launch_new creates container with default password `csc547team4`
+# container created with default password `csc547team4`
 password=csc547team4
 
 # SSH into container, create user account and change password
-expect -f $CURRENT_DIR/change_passwd.exp $2 $3 $4
+expect -f $CURRENT_DIR/change_passwd.exp $port $password $2 $3
