@@ -6,18 +6,28 @@ class ReservationsController < ApplicationController
 
   def new
 
-    container = Docker::Container.create(Cmd: '/bin/sh', Image: 'fedora')
-    puts container.json
-    container.start
-    puts container.json
-    # Short lived...next step is to figure out how to make long running
-    # and ability to ssh in/out at will.
+    # Generate 16 byte hex container name. Low probability of name
+    # collision, but a future enhancement would be to check for uniqueness
+    # before attempting to launch container
+    container_name = SecureRandom.hex(16)
 
-    # if reservation created successfully
-    if false
+    # Use first part of email as username
+    username = current_user.email.split("@").first
+
+    # Generate random 6 hex digit password (temporary)
+    password = SecureRandom.hex(3)
+
+    params = "#{container_name} #{username} #{password}"
+
+    status = `lib/scripts/launch.sh #{container_name} #{username} #{password} &> /dev/null; echo $?`
+    status.chomp!
+
+    if status == "0"
       flash[:success] = "Reservation created successfully"
+      puts "Success! Params: #{params}"
     else
       flash[:error] = "Failed to create reservation"
+      puts "Failed! Params: #{params}"
     end
     redirect_to reservations_path
   end
