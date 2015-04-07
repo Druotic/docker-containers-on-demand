@@ -1,22 +1,38 @@
 <div class="container">
   <h1>Welcome, <%= current_user.name %>!</h1>
 
-
-  <div>
-    Application name here:
-    <%= link_to "Request Instance", new_reservation_path, class: "btn btn-primary" %>
-  </div>
-    <h3 class="reservations-header"> Reservations: </h3>
-    <ul class="list-group">
-      <% @reservations.each do |res| %>
-        <li class="list-group-item">
-          <div> Container name: <%=truncate(res.container_name, length: 13)%> </div>
-          <div> Default userid <%=res.userid%> Default pass: <%=res.default_pass%> Created: <%=res.created_at%> </div>
-          <span class="badge">Running</span> <%= link_to image_tag("delete-icon.png"),
-          reservation_path(res.id), data: {confirm: "Are you sure?" }, method: :delete %>
-        </li>
-
-      <% end %>
+  <!-- Large button group -->
+  <div class="btn-group">
+    <button class="btn btn-default btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+      CentOS 7 Base <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" role="menu">
+      <li> <%= link_to "Request Instance", new_reservation_path %> <li>
     </ul>
+  </div>
+
+  <h3 class="reservations-header"> Reservations: </h3>
+  <ul class="list-group">
+    <% @reservations.each do |res| %>
+      <li class="list-group-item row">
+        <div class="col-sm-10">
+        <div> <span class="field-name">Container name:</span> <%=truncate(res.container_name, length: 13)%> </div>
+        <div>
+          <span class="field-name">Default userid:</span> <%=res.userid%>
+          <span class="field-name">Default pass:</span> <%=res.default_pass%>
+        </div>
+        <div>
+          <span class="field-name">Created:</span> <%=res.created_at%>
+        </div>
+        </div>
+        <div class="col-sm-1 col-sm-offset-1">
+        <span class="badge">Running</span>
+          <%= link_to image_tag("delete-icon.png"),
+          reservation_path(res.id), data: {confirm: "Are you sure?" }, method: :delete, style: "display:block;margin-left:auto;margin-right:auto" %>
+        </div>
+      </li>
+
+    <% end %>
+  </ul>
 
 </div>

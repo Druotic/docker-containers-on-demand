@@ -14,7 +14,7 @@ class ReservationsController < ApplicationController
     # Use first part of email as username
     username = current_user.email.split("@").first
 
-    # Generate random 6 hex digit password (temporary)
+    # Generate random 6 (3 byte) hex digit password (temporary)
     password = SecureRandom.hex(3)
 
     params = "#{container_name} #{username} #{password}"
