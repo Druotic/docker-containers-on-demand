@@ -17,17 +17,18 @@ class ReservationsController < ApplicationController
     # Generate random 6 (3 byte) hex digit password (temporary)
     password = SecureRandom.hex(3)
 
-    params = "#{container_name} #{username} #{password}"
+    # temporary solution - this assumes the web server is running on the same
+    # machine as the docker node.  Future enhancement would be to obtain public hostname/ip
+    # of docker node from elsewhere
+    host = request.host
+    port = launch container_name, username, password
 
-    status = `lib/scripts/launch.sh #{container_name} #{username} #{password} &> /dev/null; echo $?`
-    status.chomp!
-
-    if status == "0" && current_user.reservations.create(container_name: container_name, userid: username, default_pass: password, created_at: Time.now)
+    if port > -1 && current_user.reservations.create(container_name: container_name,
+          host: host, port: port, userid: username, default_pass: password, created_at: Time.now)
       flash[:success] = "Reservation created successfully"
-      puts "Success! Params: #{params}"
+      puts "Container #{container_name} launched successfully!"
     else
       flash[:error] = "Failed to create reservation"
-      puts "Failed! Params: #{params}"
     end
     redirect_to reservations_path
   end
@@ -41,4 +42,27 @@ class ReservationsController < ApplicationController
     end
     redirect_to reservations_path
   end
+
+  private
+
+  def launch(container_name, user, pass)
+    puts "Attempting launch with params: #{container_name} #{user} #{pass}"
+    result = `lib/scripts/launch.sh #{container_name} #{user} #{pass} | tail -n 1`
+    result.chomp!
+
+    results = result.split
+    port = results[0]
+    launch_status = results[1]
+    pwd_change_status = results[2]
+
+    if launch_status != "0"
+      puts "Launch (#{container_name}) failed with status #{launch_status}!"
+    end
+    if pwd_change_status != "0"
+      puts "Password change (#{container_name}) failed with status #{pwd_change_status}!"
+    end
+
+    return (launch_status == "0" && pwd_change_status == "0") ? port.to_i : -1
+  end
+
 end

@@ -18,6 +18,7 @@ CURRENT_DIR="`pwd`/`dirname $0`"
 
 # Launch new container
 docker run -d --name ${1} -P sktomer/centos7_ssh_plus_user_acc
+launch_status=`echo $?`
 port=`docker inspect ${1} | grep HostPort | egrep -o [0-9]+`
 
 sleep 5
@@ -30,3 +31,7 @@ password=csc547team4
 
 # SSH into container, create user account and change password
 expect -f $CURRENT_DIR/change_passwd.exp $port $password $2 $3
+pwd_change_status=`echo $?`
+
+
+echo "$port $launch_status $pwd_change_status"
