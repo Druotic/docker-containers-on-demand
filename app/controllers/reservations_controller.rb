@@ -1,7 +1,7 @@
 class ReservationsController < ApplicationController
   def index
     # return user's list of reservations
-    @reservations = []
+    @reservations = current_user.reservations
   end
 
   def new
@@ -22,7 +22,7 @@ class ReservationsController < ApplicationController
     status = `lib/scripts/launch.sh #{container_name} #{username} #{password} &> /dev/null; echo $?`
     status.chomp!
 
-    if status == "0"
+    if status == "0" && current_user.reservations.create(container_name: container_name, userid: username, default_pass: password, created_at: Time.now)
       flash[:success] = "Reservation created successfully"
       puts "Success! Params: #{params}"
     else

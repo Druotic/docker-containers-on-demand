@@ -6,17 +6,17 @@
     Application name here:
     <%= link_to "Request Instance", new_reservation_path, class: "btn btn-primary" %>
   </div>
-<br><br><br> <!-- remove this later -->
-    <h4> Reservations: </h4>
-    reservation 1 - state - application name - time requested - ...
-    <%= link_to image_tag("delete-icon.png"), reservation_path(0), data: {confirm: "Are you sure?" }, method: :delete %>
-
-    <div>
+    <h3 class="reservations-header"> Reservations: </h3>
+    <ul class="list-group">
       <% @reservations.each do |res| %>
-        <p>
-          Foo
-        </p>
+        <li class="list-group-item">
+          <div> Container name: <%=truncate(res.container_name, length: 13)%> </div>
+          <div> Default userid <%=res.userid%> Default pass: <%=res.default_pass%> Created: <%=res.created_at%> </div>
+          <span class="badge">Running</span> <%= link_to image_tag("delete-icon.png"),
+          reservation_path(res.id), data: {confirm: "Are you sure?" }, method: :delete %>
+        </li>
+
       <% end %>
-    </div>
+    </ul>
 
 </div>

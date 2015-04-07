@@ -2,6 +2,7 @@ require 'json'
 
 class User
   include Mongoid::Document
+  embeds_many :reservations
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
