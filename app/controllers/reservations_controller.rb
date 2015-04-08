@@ -34,11 +34,17 @@ class ReservationsController < ApplicationController
   end
 
   def destroy
-    # if reservation deleted successfully
-    if false
+    res = current_user.reservations.find(params[:id])
+
+    # Future enhancement - check if docker container was deleted successfully
+    terminate res.container_name
+
+    if res.destroy
       flash[:success] = "Reservation deleted"
+      puts "Container #{res.container_name} successfully deleted."
     else
       flash[:error] = "Failed to delete reservation"
+      puts "Failed to stop or delete container #{res.container_name}."
     end
     redirect_to reservations_path
   end
@@ -65,4 +71,10 @@ class ReservationsController < ApplicationController
     return (launch_status == "0" && pwd_change_status == "0") ? port.to_i : -1
   end
 
+  def terminate(container_name)
+    cont = Docker::Container.get(container_name)
+    cont.stop
+    cont.delete(force: true)
+    puts "Deleted contained docker container #{container_name}"
+  end
 end
