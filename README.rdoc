@@ -28,4 +28,4 @@ platforms.
 
 == Sample screenshot (changing constantly)
 
-![reservations](http://i.imgur.com/CqEAPpR.png "Sample Screenshot")
+http://i.imgur.com/CqEAPpR.png
