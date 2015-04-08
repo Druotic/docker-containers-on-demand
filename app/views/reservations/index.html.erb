@@ -11,35 +11,39 @@
     </ul>
   </div>
 
-  <h3 class="reservations-header"> Reservations: </h3>
-  <ul class="list-group">
-    <% @reservations.each do |res| %>
-      <li class="list-group-item row">
-        <div class="col-md-6">
-        <div> <span class="field-name">Container name:</span> <%=truncate(res.container_name, length: 13)%> </div>
-        <div>
-          <span class="field-name">Default userid:</span> <%=res.userid%>
-          <span class="field-name">Default pass:</span> <%=res.default_pass%>
-        </div>
-        <div>
-          <span class="field-name">Host:</span> <%=res.host%>
-          <span class="field-name">Port:</span> <%=res.port%>
-        </div>
-        <div>
-          <span class="field-name">Created:</span> <%=res.created_at%>
-        </div>
-        </div>
-        <div class="col-md-3 pagination text-centered">
-          <span class="badge">Running</span>
-        </div>
-        <div class="col-md-3 pagination text-centered">
-          Cancel Reservation?
-          <%= link_to image_tag("delete-icon.png"),
-          reservation_path(res.id), data: {confirm: "Are you sure?" }, method: :delete %>
-        </div>
-      </li>
-
-    <% end %>
-  </ul>
+  <div class="reservations-wrapper">
+    <h3 class="reservations-header"> Reservations: </h3>
+    <ul class="list-group">
+      <% @reservations.each do |res| %>
+        <li class="list-group-item row">
+          <div class="col-md-6">
+          <div> <span class="field-name">Container name:</span> <%=truncate(res.container_name, length: 13)%> </div>
+          <div>
+            <span class="field-name">Default userid:</span> <%=res.userid%>
+            <span class="field-name">Default pass:</span> <%=res.default_pass%>
+          </div>
+          <div>
+            <span class="field-name">Host:</span> <%=res.host%>
+            <span class="field-name">Port:</span> <%=res.port%>
+          </div>
+          <div>
+            <span class="field-name">Created:</span> <%=res.created_at%>
+          </div>
+          </div>
+          <div class="col-md-3 pagination text-centered">
+            <span class="badge">Running</span>
+          </div>
+          <div class="col-md-3 pagination text-centered">
+            Cancel Reservation?
+            <%= link_to image_tag("delete-icon.png"),
+            reservation_path(res.id), data: {confirm: "Are you sure?" }, method: :delete %>
+          </div>
+        </li>
+      <% end %>
+      <% if @reservations.size == 0 %>
+        <p>No reservations at this time.</p>
+      <% end %>
+    </ul>
+  </div>
 
 </div>
