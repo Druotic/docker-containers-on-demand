@@ -24,3 +24,8 @@ platforms.
 
 4) Using a browser, start using the application at
   http://localhost:3000
+
+
+== Sample screenshot (changing constantly)
+
+![reservations](http://i.imgur.com/CqEAPpR.png "Sample Screenshot")
