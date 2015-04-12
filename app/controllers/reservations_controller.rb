@@ -76,6 +76,6 @@ class ReservationsController < ApplicationController
     cont = Docker::Container.get(container_name)
     cont.stop
     cont.delete(force: true)
-    logger.info "Deleted contained docker container #{container_name}"
+    logger.info "Deleted docker container #{container_name}"
   end
 end
