@@ -26,9 +26,10 @@ class ReservationsController < ApplicationController
     if port > -1 && current_user.reservations.create(container_name: container_name,
           host: host, port: port, userid: username, default_pass: password, created_at: Time.now)
       flash[:success] = "Reservation created successfully"
-      puts "Container #{container_name} launched successfully!"
+      logger.info "Container #{container_name} launched successfully!"
     else
       flash[:error] = "Failed to create reservation"
+      logger.error "Container #{container_name} failed to launch."
     end
     redirect_to reservations_path
   end
@@ -41,10 +42,10 @@ class ReservationsController < ApplicationController
 
     if res.destroy
       flash[:success] = "Reservation deleted"
-      puts "Container #{res.container_name} successfully deleted."
+      logger.info "Container #{res.container_name} successfully deleted."
     else
       flash[:error] = "Failed to delete reservation"
-      puts "Failed to stop or delete container #{res.container_name}."
+      logger.error "Failed to stop or delete container #{res.container_name}."
     end
     redirect_to reservations_path
   end
@@ -52,7 +53,7 @@ class ReservationsController < ApplicationController
   private
 
   def launch(container_name, user, pass)
-    puts "Attempting launch with params: #{container_name} #{user} #{pass}"
+    logger.info "Attempting launch with params: #{container_name} #{user} #{pass}"
     result = `lib/scripts/launch.sh #{container_name} #{user} #{pass} | tail -n 1`
     result.chomp!
 
@@ -62,10 +63,10 @@ class ReservationsController < ApplicationController
     pwd_change_status = results[2]
 
     if launch_status != "0"
-      puts "Launch (#{container_name}) failed with status #{launch_status}!"
+      logger.error "Launch (#{container_name}) failed with status #{launch_status}!"
     end
     if pwd_change_status != "0"
-      puts "Password change (#{container_name}) failed with status #{pwd_change_status}!"
+      logger.error "Password change (#{container_name}) failed with status #{pwd_change_status}!"
     end
 
     return (launch_status == "0" && pwd_change_status == "0") ? port.to_i : -1
@@ -75,6 +76,6 @@ class ReservationsController < ApplicationController
     cont = Docker::Container.get(container_name)
     cont.stop
     cont.delete(force: true)
-    puts "Deleted contained docker container #{container_name}"
+    logger.info "Deleted contained docker container #{container_name}"
   end
 end
