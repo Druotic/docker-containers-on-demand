@@ -27,12 +27,12 @@ platforms.
 
 == Optional Config
 
-1) Enable mailers for password reset via email:
+1) Enable mailers for password reset via email
 
 Set the following environment variables:  
-`export GMAIL_DOMAIN=gmail.com`  
-`export GMAIL_USERNAME=user@gmail.com`  
-`export GMAIL_PASSWORD=yourpassword`  
+  `export GMAIL_DOMAIN=gmail.com`  
+  `export GMAIL_USERNAME=user@gmail.com`  
+  `export GMAIL_PASSWORD=yourpassword`  
 
 For more info, look at config/environments/development.rb
 
