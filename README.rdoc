@@ -38,4 +38,4 @@ For more info, look at config/environments/development.rb
 
 == Sample screenshot (changing constantly)
 
-![reservations](http://i.imgur.com/CqEAPpR.png "Sample Screenshot")
+http://i.imgur.com/CqEAPpR.png
