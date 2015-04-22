@@ -4,7 +4,7 @@ class ReservationsController < ApplicationController
     @reservations = current_user.reservations
   end
 
-  def new
+  def create
 
     # Generate 16 byte hex container name. Low probability of name
     # collision, but a future enhancement would be to check for uniqueness
