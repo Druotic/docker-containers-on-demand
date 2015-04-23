@@ -8,6 +8,9 @@ More details to come.
 
 Ensure MongoDB is running - http://docs.mongodb.org/manual/installation/
 
+Ensure Ruby is installed, preferably version 2.0.0 or above.  If you have issues with native extensions,
+maybe try Ruby 2.2.1 (the version we used for development)
+
 Note: Application was developed/tested on CentOS and Fedora - no guarantee on other
 platforms.
 
