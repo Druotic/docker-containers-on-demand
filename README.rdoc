@@ -6,6 +6,9 @@ More details to come.
 
 <b>Pre-reqs:</b>
 
+Ensure Docker is running[https://docs.docker.com/installation/]. You will also need to add your user to the "docker"
+group so that docker commands can be run as the current user (without sudo access). See help[http://askubuntu.com/questions/477551/how-can-i-use-docker-without-sudo]
+
 Ensure MongoDB is running - http://docs.mongodb.org/manual/installation/
 
 Ensure Ruby is installed, preferably version 2.0.0 or above.  If you have issues with native extensions,
@@ -17,7 +20,7 @@ platforms.
 == Getting Started
 
 1) Install bash dependencies (for RPM-based)
-  sudo yum install -y expect docker
+  sudo yum install -y expect
 
 2) Install gems
   bundle install
@@ -27,7 +30,7 @@ Note: If <tt>bundle install</tt> fails and you are running on EC2, you may need 
   sudo yum install rubygem20-aws-sdk
 
 3) Run the server
-  rails server
+  rails s
 
 4) Using a browser, start using the application at
   http://localhost:3000
