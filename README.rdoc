@@ -18,6 +18,10 @@ platforms.
 
 2) Install gems
   bundle install
+  
+Note: If <tt>bundle install</tt> fails and you are running on EC2, you may need to install the following:
+  
+  sudo yum install rubygem20-aws-sdk
 
 3) Run the server
   rails server
