@@ -47,6 +47,11 @@ domain will likely be the same if you are using a public gmail account):
 
 For more info, look at config/environments/development.rb
 
+2) Modify Number of Async Workers
+
+Unicorn is being used as the web server to support asynchronous request handling.  The default number
+of workers is 3, but this can be modified in (config/unicorn.rb)[config/unicorn].
+
 == Sample screenshot (changing constantly)
 
 http://i.imgur.com/CqEAPpR.png
