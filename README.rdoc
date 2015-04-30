@@ -50,7 +50,7 @@ For more info, look at config/environments/development.rb
 2) Modify Number of Async Workers
 
 Unicorn is being used as the web server to support asynchronous request handling.  The default number
-of workers is 3, but this can be modified in (config/unicorn.rb)[config/unicorn].
+of workers is 3, but this can be modified in config/unicorn.rb[config/unicorn.rb].
 
 == Sample screenshot (changing constantly)
 
