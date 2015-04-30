@@ -37,7 +37,7 @@ Note: If <tt>bundle install</tt> fails and you are running on EC2, you may need 
 
 == Optional Config
 
-1) Enable mailers for password reset via email
+<b>1) Enable mailers for password reset via email</b>
 
 Set the following environment variables (replace username and password with yours, 
 domain will likely be the same if you are using a public gmail account):  
@@ -45,9 +45,9 @@ domain will likely be the same if you are using a public gmail account):
   export GMAIL_USERNAME=<user>@gmail.com
   export GMAIL_PASSWORD=<yourpassword>
 
-For more info, look at config/environments/development.rb
+For more info, look at config/environments/development.rb[config/environments/development.rb]
 
-2) Modify Number of Async Workers
+<b>2) Modify Number of Async Workers</b>
 
 Unicorn is being used as the web server to support asynchronous request handling.  The default number
 of workers is 3, but this can be modified in config/unicorn.rb[config/unicorn.rb].
