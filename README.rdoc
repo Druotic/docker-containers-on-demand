@@ -1,8 +1,6 @@
 == Containers on Demand
 
-This is the web application portion of our containers on demand system.
-More details to come.
-
+A container on demand web application built using Ruby on Rails, MongoDB, and Docker.
 
 <b>Pre-reqs:</b>
 
@@ -14,8 +12,8 @@ Ensure MongoDB is running - http://docs.mongodb.org/manual/installation/
 Ensure Ruby is installed, preferably version 2.0.0 or above.  If you have issues with native extensions,
 maybe try Ruby 2.2.1 (the version we used for development)
 
-Note: Application was developed/tested on CentOS and Fedora - no guarantee on other
-platforms.
+Note: Application was developed/tested on Fedora 20 and Amazon Linux AMI 2015.03 - no guarantee on other
+platforms (but it should run on most popular Linux distros)
 
 == Getting Started
 
@@ -52,12 +50,13 @@ Otherwise, host will default to 'localhost'.
 
 For more info, look at config/environments/development.rb[https://github.com/Druotic/docker-containers-on-demand/blob/master/config/environments/development.rb]
 
+Note: Be sure to check your spam folder if emails are not showing up.
 
 <b>3) Modify Number of Async Workers</b>
 
 Unicorn is being used as the web server to support asynchronous request handling.  The default number
 of workers is 3, but this can be modified in config/unicorn.rb[https://github.com/Druotic/docker-containers-on-demand/blob/master/config/unicorn.rb].
 
-== Sample screenshot (changing constantly)
+== Sample screenshot (Reservations List)
 
 http://i.imgur.com/CqEAPpR.png
